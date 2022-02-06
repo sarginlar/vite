@@ -20,6 +20,7 @@ const Box = (props) => {
 const App = () => {
   return (
     <Canvas>
+      <h1>sadsdad</h1>
       <spotLight intensity={1} />
       <Box />
     </Canvas>
