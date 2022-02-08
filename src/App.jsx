@@ -1,28 +1,14 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-
-// scene ==>sahne
-// geometry ==> şekil
-//material ==> texture,renk
-//mesh ==> geometry,material
-
-const Box = (props) => {
-  useFrame((state, delta) => (ref.current.rotation.x += 0.01));
-  const ref = useRef();
-  return (
-    <mesh {...props} ref={ref} position={[0, 0, 0]}>
-      <boxBufferGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial color={"#fff"} />
-    </mesh>
-  );
-};
-
+import Cat from "./components/Cat";
 const App = () => {
   return (
     <Canvas>
-      <h1>sadsdad</h1>
-      <spotLight intensity={1} />
-      <Box />
+      <ambientLight />
+      <spotLight intensity={0.5} />
+      <Suspense fallback={null}>
+        <Cat />
+      </Suspense>
     </Canvas>
   );
 };
